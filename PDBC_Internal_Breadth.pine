@@ -1,0 +1,47 @@
+//@version=6
+indicator("PDBC Internal Breadth + EMA", shorttitle="PDBC Br", overlay=false)
+
+// 11 Symbols
+c1  = request.security("CL1!",  timeframe.period, close)
+c2  = request.security("BZ1!",  timeframe.period, close)
+c3  = request.security("GC1!",  timeframe.period, close)
+c4  = request.security("SI1!",  timeframe.period, close)
+c5  = request.security("HG1!",  timeframe.period, close)
+c6  = request.security("HO1!",  timeframe.period, close)
+c7  = request.security("NG1!",  timeframe.period, close)
+c8  = request.security("RB1!",  timeframe.period, close)
+c9  = request.security("C1!",   timeframe.period, close)
+c10 = request.security("S1!",   timeframe.period, close)
+c11 = request.security("W1!",   timeframe.period, close)
+
+adv = 0
+adv += c1 > c1[1]  ? 1 : 0
+adv += c2 > c2[1]  ? 1 : 0
+adv += c3 > c3[1]  ? 1 : 0
+adv += c4 > c4[1]  ? 1 : 0
+adv += c5 > c5[1]  ? 1 : 0
+adv += c6 > c6[1]  ? 1 : 0
+adv += c7 > c7[1]  ? 1 : 0
+adv += c8 > c8[1]  ? 1 : 0
+adv += c9 > c9[1]  ? 1 : 0
+adv += c10 > c10[1] ? 1 : 0
+adv += c11 > c11[1] ? 1 : 0
+
+dec = 11 - adv
+net = adv - dec
+
+var float adLine = 0.0
+adLine += net
+
+// === EMAs ===
+emaLength = 13
+emaAd = ta.ema(adLine, emaLength)
+smoothEma = ta.ema(emaAd, emaLength)   // Double smoothing
+
+// Plots
+plot(adLine,    title="A/D Line",        color=color.blue,  linewidth=2)
+plot(emaAd,     title="EMA 13",          color=color.red,   linewidth=1)
+plot(smoothEma, title="Smoothed EMA",    color=color.orange, linewidth=2)
+
+plot(0, "Zero Line", color=color.gray, style=plot.style_linebr)
+
