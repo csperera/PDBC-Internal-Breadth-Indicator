@@ -3,7 +3,7 @@
 A custom **TradingView Pine Script** that calculates **true internal Advance-Decline breadth** for the commodities underlying **PDBC** (Invesco Optimum Yield Diversified Commodity Strategy ETF).
 
 ### Why This Indicator?
-Most breadth tools only look at PDBC's price and volume. This one tracks the **actual participation** of 11 individual commodities inside the index — helping detect when momentum is broad-based vs. narrowing (e.g., only oil-driven).
+Most breadth tools only look at PDBC's price and volume. This one tracks the **actual participation** of 11 (of 14) individual commodities inside the index — helping detect when momentum is broad-based vs. narrowing (e.g., only oil-driven).
 
 ### Features
 - Real internal commodity breadth (11 components)
