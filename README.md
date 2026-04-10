@@ -12,7 +12,7 @@ Most breadth tools only look at PDBC's price and volume. This one tracks the **a
 
 ### Screenshot
 
-![PDBC Internal Breadth Indicator]()
+![PDBC Internal Breadth Indicator](screenshot.png)
 
 *Example of the PDBC Internal Breadth indicator on the Weekly timeframe (April 2026). Blue = Raw A/D Line, Red = 13-period EMA, Orange = Smoothed EMA.*
 
